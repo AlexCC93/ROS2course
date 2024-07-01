@@ -6,12 +6,12 @@ Installation and software setup
 Installation
 -----------------
 
-There are plenty of ways to use ROS 2, among the most common ones, there are:
+There are several ways to use ROS 2, including the following common methods:
 
-- Working with a VM with Linux OS and install ROS 2 on it.
-- Have Linux host machine or a dual-boot PC and install ROS 2 on it.
-- Work completely online with no installation requirements (https://www.theconstruct.ai/).
-- Using a docker container on a Windows host machine. 
+- Virtual Machine (VM): Use a VM with a Linux OS and install ROS 2 on it.
+- Linux Host Machine or Dual-Boot PC: Install ROS 2 directly on a Linux host machine or a dual-boot PC.
+- Online Platform: Work entirely online without installation requirements using platforms like The Construct.
+- Docker Container: Use a Docker container to run ROS 2 on a Windows host machine.
 
 The last option is the one preferred for this course. Hence, all the content of this course will be based on a Windows host machine with a Docker installation providing a ROS 2 container; specifically the Humble ROS 2 distribution is utilized.
 
@@ -19,9 +19,16 @@ The last option is the one preferred for this course. Hence, all the content of 
 Docker installation and configuration
 ~~~~~~~~~~
 
-Start by downloading Docker installer from this link: https://docs.docker.com/desktop/install/windows-install/. In the same link, it is posted the system requirements, be aware that ``wsl2 of Hyper-V`` is required to fully work with Docker. Hence, at some point it will be required to install ``wsl2`` tool if not already installed.
+Start by downloading Docker installer from this link: https://docs.docker.com/desktop/install/windows-install/. In the same link, it is posted the system requirements, be aware that ``wsl2`` or  ``Hyper-V`` is required to fully work with Docker. Hence, at some point it will be required to install ``wsl2`` or  ``Hyper-V`` tools if not already installed.
 
-Execute the ``Docker Desktop for Windows`` installer that was downladed. Follow the instructions on the installation wizard clicking ``Next`` at each installation step.
+- Note: ``wsl2`` is a feature of Windows that allows running Linux binary executables natively on Windows.
+
+.. note::
+
+   ``wsl2`` is a feature of Windows that allows running Linux binary executables natively on Windows.
+
+
+Execute the ``Docker Desktop for Windows`` installer that was downladed and follow the instructions on the installation wizard.
 
 Restart the PC for the changes to take effect.
 

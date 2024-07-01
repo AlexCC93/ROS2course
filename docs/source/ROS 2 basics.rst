@@ -10,7 +10,7 @@ What is ROS 2?
 
 - ROS 2 software ecosystem is divided into three categories:
 
-   - Middleware: Referred to as the plumbing, the ROS 2 middleware encompasses communication among components, from network APIs to message parsers. By "Middleware" it refers to an intermediate layer between thre various components of robotics (sensors, actuators, controllers) and higher-level sofware modules.
+   - Middleware: Referred to as the plumbing, the ROS 2 middleware encompasses communication among components, from network APIs to message parsers. By "Middleware" it refers to an intermediate layer between the various components of robotics (sensors, actuators, controllers) and higher-level software modules.
 
    .. image:: images/ROS2middleware.png
       :alt: ROS2 middleware graph.
@@ -23,10 +23,13 @@ What is ROS 2?
 
 - Finally, the "2" in this ROS 2 course, it obviously indicates that there was, and in fact there is still, a ROS 1 version whose support will go until 2025 (check the latest ROS distro here: http://wiki.ros.org/Distributions). While ROS 1 solves many of the complexity issues inherent to robotics, it struggles to consistently deliver data over lossy links (like WiFi or satellite links), has a single point of failure, and does not have any built-in security mechanisms. In order to address these challenges, a new generation of ROS was redeisgned from the ground, that is ROS 2.
 
-The above information was extracted and based from the following resources. Check them to have more insights into this passionate world of ROS: 
+The above information was extracted and based from the following resources:
 
 - https://www.science.org/doi/abs/10.1126/scirobotics.abm6074
 - https://www.theconstruct.ai/wp-content/uploads/2021/06/ROS2-Developers-Guide-2021.pdf
+
+Quick summary of ROS: https://vimeo.com/639235111
+
 
 If coming from ROS 1 
 ------------
