@@ -16,7 +16,7 @@ What is it?
 
 Do not forget 
 -------------
-Remember to have the ROS 2 environment properly setup. Perform the following, if the ROS 2 package cannot be found when executing it:
+Remember to have the ROS 2 environment properly setup. Perform the following, if a ROS 2 package cannot be found when executing it:
 
 .. code-block:: console
 
