@@ -64,9 +64,9 @@ Inside this workspace folder create a ``src`` folder. In the ``ros2_ws/src`` dir
    
    git clone https://github.com/ros/ros_tutorials.git -b humble
 
-This command is clonning a github repository called: ``ros_tutorials``. This repository consists on various packages, among them, the ``turtlesim`` package, which will be the only one to be built for this example; See that the other packages in this repository contain a ``COLCON_IGNORE`` file. 
+This command is clonning a Github repository called: ``ros_tutorials``. This repository consists on various packages, among them, the ``turtlesim`` package, which will be the only one to be built for this example; See that the other packages in this repository contain a ``COLCON_IGNORE`` file. 
 
-This is the current structure of the workspace. Notice that it does not exactly match the one shown above, but since the other packages (``ros_tutorials``, ``roscpp_tutorials`` and ``rospy_tutorials``) are not going to be built, then it is like having only the ``turtlesim`` package, which makes it more resemble the workspace folders structure shown above.
+This is the current structure of the workspace. Notice that it does not exactly match the one shown above, but since the other packages (``ros_tutorials``, ``roscpp_tutorials`` and ``rospy_tutorials``) are not going to be built, then it is like having only the ``turtlesim`` package, which makes it more similar to the workspace folders structure shown above.
 
 .. code-block:: console
 
@@ -116,7 +116,9 @@ To achieve building a workspace, the following three commands will be described.
 
    colcon build --packages-select turtlesim
 
-The first command will build all the packages contained in the workspace; it will build them by copying the built artifacts (binaries, libraries, headers, etc.) into an install directory. While the second one, will also build all the packages contained in the workspace, but rather than copying the built artifacts, it will use symbolic links to these ones. The way the built artifacts are handled results in having to build the workspace every time a change is performed in the source code, or not. With ``colcon build --symlink-install``, every time a change is performed in the source code, it will not be necessary to perform the building operation afterwards. 
+The first command will build all the packages contained in the workspace; it will build them by copying the built artifacts (binaries, libraries, headers, etc.) into an install directory. 
+
+The second one, will also build all the packages contained in the workspace, but rather than copying the built artifacts, it will use symbolic links to these ones. The way the built artifacts are handled results in having to build the workspace every time a change is performed in the source code, or not. With ``colcon build --symlink-install``, every time a change is performed in the source code, it will not be necessary to perform the building operation afterwards. 
 
 Finally, the third ``colcon`` command specifically builds the given package rather than all packages contained in the workspace. 
 
@@ -154,15 +156,27 @@ Now, in order to set up the ROS 2 environment variables and its core functionali
  
    source /opt/ros/humble/setup.bash
 
-This command should be executed inside a Docker container terminal. Each time a new terminal is open, it would be necessary to setup the ROS 2 environment by executing the above command. 
+This command should be executed inside a Docker container shell prompt. Each time a new terminal is open, it would be necessary to setup the ROS 2 environment by executing the above command. 
 
-In general, it's good practice to add the sourcing of the setup file to the ``.bashrc`` to ensure that the ROS 2 environment is always properly set up whenever a new terminal session is open. This is exactly what has been done in the ``ros2_humble_image`` Docker image. Execute the following command in the Docker container terminal:
+.. image:: images/SourcingUnderlayWS.png
+   :alt: Sourcing the underlay workspace.
+
+It's a good practice to add the sourcing of the setup file to the ``.bashrc`` file to ensure that the ROS 2 environment is always properly set up whenever a new terminal session is open. 
+
+.. note::
+
+   The ``.bashrc`` file in a Linux OS is a shell script that bash runs whenever it is started interactively. The file is used to configure the shell environment and to set up custom commands and environment variables for the user.
+
+   ``bash`` stands for Bourne Again SHell. It is a command processor that typically runs in a text window where the user can interact with the operating system by typing commands. 
+
+
+This is exactly what has been already done in the ``ros2_humble_image`` Docker image. To check this, execute the following command in a Docker container shell prompt:
 
 .. code-block:: console
 
    nano ~/.bashrc
 
-Navigate to the end of the file with the keyboard arrows and check to find something similar to this:
+Navigate to the end of the file with the keyboard arrows and check something similar to this:
 
 .. image:: images/sourceSetupBashUnderlay.png
    :alt: Sourcing the underlay workspace.
@@ -178,9 +192,7 @@ Until now, it can be seen that the Docker container generated from ``ros2_humble
    source install/local_setup.bash
    source install/setup.bash
 
-Sourcing the ``local_setup`` of the overlay will only add the packages available in the overlay workspace to the current ROS 2 environment. 
-
-On the other hand, ``setup`` will source the overlay as well as the underlay it was created in, allowing to utilize both workspaces but, the overlay takes precedence over the contents of the underlay. 
+Sourcing the ``local_setup`` of the overlay will only add the packages available in the overlay workspace to the current ROS 2 environment. On the other hand, ``setup`` will source the overlay as well as the underlay it was created in, allowing to utilize both workspaces but, the overlay takes precedence over the contents of the underlay. 
 
 Now, the ``turtlesim`` package from the overlay workspace can be executed:
 
@@ -277,9 +289,9 @@ Where:
 
 - ``package.xml``. Same as in the CMake-built package, it provides metadata and information about the package.
 
-- ``resource/my_package`` directory typically contains additional resources or data files that are needed by the Python package.These resources might include configuration files, launch files, images, meshes, or any other files required by your package at runtime.
+- ``resource/my_package`` directory typically contains additional resources or data files that are needed by the Python package. These resources might include configuration files, launch files, images, meshes, or any other files required by the package at runtime.
 
-- ``setup.cfg`` file is a configuration file for setuptools, a library used to package Python projects. It contains various configuration options for how your Python package should be built, installed, and distributed.
+- ``setup.cfg`` file is a configuration file for setuptools, a library used to package Python projects. It contains various configuration options for how the Python package should be built, installed, and distributed.
 
 - ``setup.py`` setup script for the Python package, responsible for configuring the package build, installation, and distribution process. It typically imports setuptools and calls its setup function with various arguments to define the package metadata and behavior.
 
@@ -302,7 +314,7 @@ To see an example of this, open a `brand a new terminal`_ in a Docker container,
 
    ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_node my_package
 
-Notice that, here, the ``--node-name my_node`` is new to the package creation structure that was shown above. This indicates to generate an executable node (``my_node``) inside the pacakge of name ``my_package``.
+Notice that, here, the ``--node-name my_node`` is new to the package creation structure that was shown above. This indicates to generate an executable node (``my_node``) inside the ``my_package`` package.
 
 As a result, in the terminal it will be displayed some information about the package creation. 
 

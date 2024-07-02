@@ -19,11 +19,19 @@ The last option is the one preferred for this course. Hence, all the content of 
 Docker installation and configuration
 ~~~~~~~~~~
 
+What is Docker?
+
+- Docker is an open platform for developing, shipping, and running applications. 
+- Docker permits to separate applications from its  infrastructure so software can be quickly delivered. 
+- Docker provides the ability to package and run an application in a loosely isolated environment called a container. 
+- The isolation and security lets the user run many containers simultaneously on a given host. Containers are lightweight and contain everything needed to run the application, so the user doesn't need to rely on what's installed on the host. 
+
 Start by downloading Docker installer from this link: https://docs.docker.com/desktop/install/windows-install/. In the same link, it is posted the system requirements, be aware that ``wsl2`` or  ``Hyper-V`` is required to fully work with Docker. Hence, at some point it will be required to install ``wsl2`` or  ``Hyper-V`` tools if not already installed.
 
 .. note::
 
    ``wsl2`` is a feature of Windows that allows running Linux binary executables natively on Windows.
+
    ``Hyper-V`` is a native hypervisor for Windows that enables platform virtualization. It permits creating and managing virtual machines (VMs) on Windows.
 
 Execute the ``Docker Desktop for Windows`` installer that was downladed and follow the instructions on the installation wizard.
@@ -53,6 +61,7 @@ Go to https://hub.docker.com/u/osrf which is a Docker repository containing ROS 
 .. note::
 
    Docker images are read-only templates that contain instructions for creating a container. 
+   
    A ROS distribution is a versioned set of ROS packages. These are akin to Linux distributions (e.g. Ubuntu). 
 
 For this course, the image that is going to be used is ``ros:humble-desktop``, which is found here: https://hub.docker.com/r/osrf/ros/tags. 
