@@ -49,12 +49,12 @@ See this example:
 
 - Look at the error of not being able to find the desired package. This is because the workspace was not configured correctly.
 
-.. image:: images/ErrorNotSourcing.png
+.. image:: images/errorNotSourcing.png
    :alt: Error message of not sourcing workspace correctly.
 
 - Source the appropriate setup script, that is, run ``source install/setup.sh``, to correctly configure the environment.
 
-.. image:: images/SourcingWorkspace.png
+.. image:: images/sourcingWorkspace.png
    :alt: Correctly sourcing the workspace.
 
 Notice that the sourcing is performed inside the workspace folder. More information on sourcing the environment, `check it here`_.

@@ -298,7 +298,7 @@ Afterwards, if working with custom packages, i.e packages that were created duri
 
 See the example below:
 
-.. image:: images/onlySourcingWorkspace.png
+.. image:: images/onlysourcingWorkspace.png
    :alt: Sourcing the workspace only.
 
 For further information on this, check `this section of the course`_.
