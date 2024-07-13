@@ -17,6 +17,7 @@ Contents
    Nodes
    Topics
    Writing publisher and subscriber nodes. Python
+   Github usage
    Writing publisher and subscriber nodes. C++
    Services
    Writing service and client. Python
