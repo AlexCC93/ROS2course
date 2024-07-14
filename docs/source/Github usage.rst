@@ -6,7 +6,7 @@ Github usage
 Pushing changes into remote repository
 ------------------------
 
-At this point of the course, the workspace that was created (``ros2_ws``), already contains some code that can be pushed into the remote repository that was created. So this code is not only stored in one's local PC but in each one's GitHub account that can be accessed from any place with internet connection, and adding on top of it the versioning control that GitHub provides. 
+At this point of the course, the workspace that was created (``ros2_ws``), already contains some code that can be pushed into the remote repository that was created, so this code is not only stored in one's local PC but in each one's GitHub account that can be accessed from any place with internet connection, and adding on top of it the versioning control that GitHub provides. 
 
 To perform the publishing of the code to one's Github repository, navigate in a Windows terminal, to the folder of the workspace and do:
 
