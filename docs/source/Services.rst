@@ -114,9 +114,9 @@ This will list all the services that are available.
    /turtlesim/set_parameters
    /turtlesim/set_parameters_atomically
 
-Notice that the executed nodes have the same six services. Nearly every node in ROS 2 has these infrastructure services that parameters are built off of. These services have to do with ROS 2 parameters. 
+Notice that the executed nodes have the same six services: ``/describe_parameters``, ``/get_parameter_types``, ``/get_parameters``, ``/list_parameters``, ``/set_parameters`` and ``/set_parameters_atomically``. Nearly every node in ROS 2 has these infrastructure services that parameters are built off of; these services have to do with ROS 2 parameters. 
 
-For the moment, focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
+For the moment, on these services: ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
 
 
 2. Service type
@@ -140,7 +140,7 @@ Which should return:
 
    std_srvs/srv/Empty
 
-Meaning that this service in specific sends no data when making a request and receives no data when receiving a response.
+Meaning that this service sends no data when making a request and receives no data when receiving a response.
 
 3. Finding services
 ~~~~~~~~~~~~~~~~~~~~~

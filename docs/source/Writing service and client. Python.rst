@@ -29,7 +29,13 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
    ---
    int64 sum
 
-For more reference on package creation consult the `package creation`_ section.
+This package of name ``example_interfaces`` resides in the default installation of ROS 2. It occurs the same as with the ``geometry_msgs`` package when trying to use the ``Twist`` type of message in any ROS 2 script. These packages come installed by default with ROS 2. One can look for them, openning a new Docker session and navigating the following path:
+
+.. code-block:: console
+
+   /opt/ros/humble/share/example_interfaces
+
+Finally, for more reference on package creation consult the `package creation`_ section.
 
 .. _package creation: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
 
@@ -109,11 +115,11 @@ Next, a class is created:
 
 - A class of name ``MinimalService`` is created and it inherits from class ``Node``.
 - The constructor of the class is defined, for that, ``super().__init__('service_node')`` is issued. This is a call to the ``Node`` class' constructor function and at the same time, it assigns a node name of: ``service_node``.
-- An attribute of name ``srv`` is created and stores the result of ``create_service()``, which creates a service of type ``AddTwoInts`` with name ``add_two_ints`` and that will execute the ``self.add_two_ints_callback`` function every time the service is invoked. This is the general structure of the ``create_publisher`` function:
+- An attribute of name ``srv`` is created and stores the result of ``create_service()``, which creates a service of type ``AddTwoInts`` with name ``add_two_ints`` and that will execute the ``self.add_two_ints_callback`` function every time the service is invoked. This is the general structure of the ``create_service`` function:
 
 .. code-block:: console
    
-   create_publisher(<srv_type>, <srv_name>, <callback>, *, qos_profile=<rclpy.qos.QoSProfile object>, <callback_group=None>)
+   create_service(<srv_type>, <srv_name>, <callback>, *, qos_profile=<rclpy.qos.QoSProfile object>, <callback_group=None>)
 
 - Next, the definition of the callback function is coded. It receives as parameters, the request and response of the service.
 - Inside the callback function, it is performed the addition of the two requests variables and displays a message through the terminal stating the result of this sum. 
@@ -350,16 +356,27 @@ Next, a class is created:
          return self.future.result()
 
 - The constructor of the ``MinimalClientAsync`` class issues the ``create_client()`` function, which receives as arguments: ``AddTwoInts``, as the service type and ``add_two_ints``, as the service name. The structure for the ``create_client()`` function is given by:
+
+.. code-block:: console
+   
+   create_client(<srv_type>, <srv_name>, *, qos_profile=<rclpy.qos.QoSProfile object>, <callback_group=None>)
+
 - The execution of the program is stopped for 1 second, if the service of interest (``add_two_ints``) is not responding, then "service not available" message will be printed in the terminal.
 - An instance of the request message type ``AddTwoInts.Request()`` is intialized in ``self.req``.
+
 - Then a method is created: ``send_request()``. This performs:
    - Sends a request to the ``add_two_ints`` service with two integers ``a`` and ``b``.
    - It sets the ``a`` and ``b`` fields of the request message.
-   - It sends the request asynchronously using ``self.cli.call_async()``.
-   - It spins the node until the future representing the response is complete using ``rclpy.spin_until_future_complete()``.
-   - Finally, it returns the result of the future, which should contain the response message.
+   - It sends the request asynchronously using ``self.cli.call_async()``. This means that ``call_async()`` does not block the program's execution while waiting for a response. Instead, it immediately returns a ``Future`` object.
+      - A ``Future`` object represents the result of an asynchronous operation. It can be used to check the status of the operation or retrieve the result once it is complete. When ``call_async()`` is called, it returns a ``Future`` object that will eventually hold the response from the service. See below, some info extracted from its documentation: https://docs.ros2.org/latest/api/rclpy/api/services.html.  
 
-Lastly, the main function, as in the publisher node, initializes the rclpy library, creates the subscription node, spins it, explicitely destroys it when issued from the terminal window and shuts down the ROS 2 system.
+      .. image:: https://docs.ros.org/en/humble/_images/call_asyncDocs.gif
+         :alt: the call_async function documentation.
+    
+   - ``rclpy.spin_until_future_complete(self, self.future)`` is a blocking call that keeps the node running and processing until the ``Future`` object is complete. It effectively waits for the service response to be received and the ``Future`` to be set with the result.
+   - Finally, ``self.future.result()`` retrieves the result of the asynchronous operation once it is complete. If the service call was successful, this will return the response from the ``AddTwoInts`` service, which includes the sum of the two integers.
+
+Lastly, the main function, nitializes the ``rclpy`` library, creates the client node, sends the corresponding request, explicitely destroys the node when issued from the terminal window, a command of stoppage, and shuts down the ROS 2 system.
 
 .. code-block:: python
 
@@ -395,7 +412,7 @@ Navigate to ``py_srvcli/setup.py`` and add the following within the ``console_sc
 
 .. code-block:: console
    
-   'client_node = py_srvcli.client_member_function:main'
+   'client_node = py_srvcli.client_node:main'
 
 This ``entry_points`` field should be remain like this:
 
@@ -403,8 +420,8 @@ This ``entry_points`` field should be remain like this:
 
    entry_points={
       'console_scripts': [
-         'service = py_srvcli.service_member_function:main',
-         'client_node = py_srvcli.client_member_function:main'
+         'service_node = py_srvcli.service_node:main',
+         'client_node = py_srvcli.client_node:main'
       ],
    },
 
@@ -449,7 +466,7 @@ This is expected, as the service itself is not running and the current node is t
    
    ros2 run py_srvcli service_node
 
-Once, this node is ran, the service becomes available and in the terminal where ``client_node`` was executed it can be seen this otuput:
+Once, this node is run, the service becomes available and in the terminal where ``client_node`` was executed it can be seen this otuput:
 
 .. code-block:: console
 
