@@ -34,7 +34,7 @@ See this example:
 
 Notice that the sourcing is performed inside the workspace folder. More information on sourcing the environment, `check it here`_.
 
-.. _check it here: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
+.. _check it here: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
 
 
 Important commands. Parameters 
@@ -42,7 +42,7 @@ Important commands. Parameters
 
 Make sure to be in a `brand new terminal`_ window and no ROS command is currently running. 
 
-.. _`brand new terminal`: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
+.. _`brand new terminal`: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
 
 The following can be performed when working with parameters.
 
@@ -60,7 +60,7 @@ Let's first run these two nodes in separate terminal windows, of course.
 
 `Open a new terminal`_ and execute:
 
-.. _open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
 

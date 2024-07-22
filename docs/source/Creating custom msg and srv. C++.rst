@@ -6,8 +6,8 @@ Creating custom msg and srv. C++
 
 In previous sections, predefined messages and service types were used. Recall the ``String`` message type in `the publisher and subscriber example`_ or the ``AddTwoInts`` service in the `service and client examples`_. These types of interfaces already existed and were ready to be used. In this section, custom messages and services types will be created and applied into program examples under the C++ programming language.
 
-.. _`the publisher and subscriber example`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#writing-publisher-and-subscriber-nodes-c
-.. _`service and client examples`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20service%20and%20client.%20C%2B%2B.html#writing-service-and-client-c
+.. _`the publisher and subscriber example`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#writing-publisher-and-subscriber-nodes-c
+.. _`service and client examples`: https://ros2course.readthedocs.io/en/latest/Writing%20service%20and%20client.%20C%2B%2B.html#writing-service-and-client-c
 
 
 Setup for working with custom msg and srv
@@ -19,14 +19,14 @@ Testing the Sphere custom msg in a C++ package
 -----------------------
 Make sure to be in a `brand new terminal`_ window and no ROS command is currently running. 
 
-.. _`brand new terminal`: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
+.. _`brand new terminal`: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
 
 
 Create a new python package,  this package should be contained in the ``ros2_ws`` workspace, within its ``/src`` folder. The name provided to this new package will be ``testing_interfaces_cpp``. 
 
 For more reference on package creation consult the `package creation`_ section.
 
-.. _package creation: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
+.. _package creation: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
 
 .. code-block:: console
 
@@ -94,7 +94,7 @@ Copy this content into the new C++ script.
 
 Notice that this code is very similar to the publisher script that was studied `publisher script that was studied previously`_.
 
-.. _`publisher script that was studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#publisher-node-in-c
+.. _`publisher script that was studied previously`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#publisher-node-in-c
 
 Check the important changes in this script.
 
@@ -170,7 +170,7 @@ Copy this content into the new C++ script.
 
 The code is very similar to the listener script that was studied `listener script that was studied previously`_.
 
-.. _`listener script that was studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#subscriber-node-in-cpp
+.. _`listener script that was studied previously`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#subscriber-node-in-cpp
 
 Again, the relevant changes here, have to do with dealing with the appropriate topic name and message type. 
 
@@ -228,7 +228,7 @@ The result should be like the following:
 
 `Open a new terminal`_ and execute the ``sphere_listener`` node:
 
-.. _open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
    
@@ -317,7 +317,7 @@ Copy this content into the new python script.
 
 Notice that this code is very similar to the `service script that was studied previously`_.
 
-.. _`service script that was studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20service%20and%20client.%20C%2B%2B.html#writing-the-service-node-c
+.. _`service script that was studied previously`: https://ros2course.readthedocs.io/en/latest/Writing%20service%20and%20client.%20C%2B%2B.html#writing-the-service-node-c
 
 Check the important changes in this script.
 
@@ -404,7 +404,7 @@ Copy this content into the new python script.
 
 The code is very similar to the client node that was studied `service client script that was studied previously`_.
 
-.. _`service client script that was studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20service%20and%20client.%20C%2B%2B.html#client-node-in-c
+.. _`service client script that was studied previously`: https://ros2course.readthedocs.io/en/latest/Writing%20service%20and%20client.%20C%2B%2B.html#client-node-in-c
 
 Again, the relevant changes here, have to do with dealing with the appropriate import of the required library, the service name and service type. 
 
@@ -544,7 +544,7 @@ In this part, a custom msg will be created in a package of name: ``more_interfac
 
 The process below is similar to the one `studied previously`_.
 
-.. _`studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Creating%20custom%20msg%20and%20srv.%20Python.html#testing-the-sphere-custom-msg-in-a-python-package
+.. _`studied previously`: https://ros2course.readthedocs.io/en/latest/Creating%20custom%20msg%20and%20srv.%20Python.html#testing-the-sphere-custom-msg-in-a-python-package
 
 Create a new package
 ~~~~~~~~~~~~~~~~
@@ -621,7 +621,7 @@ Now, source the setup file:
 
 For more reference on sourcing the setup file, see `sourcing the setup file`_.
 
-.. _sourcing the setup file: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
+.. _sourcing the setup file: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
 
 Next, to check that the custom message is correctly created, run:
 

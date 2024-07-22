@@ -34,7 +34,7 @@ See this example:
 
 Notice that the sourcing is performed inside the workspace folder. More information on sourcing the environment, `check it here`_.
 
-.. _check it here: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
+.. _check it here: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
 
 
 Running a launch file 
@@ -42,7 +42,7 @@ Running a launch file
 
 Make sure to be in a `brand new terminal`_ window and no ROS command is currently running. 
 
-.. _`brand new terminal`: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
+.. _`brand new terminal`: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
 
 This is the structure to run a launch file:
 
@@ -89,7 +89,7 @@ Make sure to be in a `brand new terminal`_ window and no ROS command is currentl
 
 Create a new package. This package should be contained in the ``ros2_ws`` workspace, within its ``/src`` folder. The name provided to this new package will be ``py_launch_example``. For more reference on package creation consult the `package creation`_ section.
 
-.. _package creation: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
+.. _package creation: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
 
 .. code-block:: console
 
@@ -213,7 +213,7 @@ Indicating that the two turtlesim nodes have been initiated.
 
 Next, in `a new terminal`_, execute:
 
-.. _a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
 
@@ -280,7 +280,7 @@ Navigate to ``py_launch_example/launch`` and check the launch file name since th
 
 Now, build and test. `Open a new terminal` window and make sure no ROS command is currently running.
 
-.. _open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 Build and source the package.
 

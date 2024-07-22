@@ -6,21 +6,21 @@ Creating custom msg and srv. Python
 
 In previous sections, predefined messages and service types were used. Recall the ``String`` message type in `the publisher and subscriber example`_ or the ``AddTwoInts`` service in the `service and client examples`_. These types of interfaces already existed and were ready to be used. In this section, custom messages and services types will be created and applied into program examples under the python programming language.
 
-.. _`the publisher and subscriber example`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20Python.html#writing-publisher-and-subscriber-nodes-python
-.. _`service and client examples`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20service%20and%20client.%20Python.html#writing-service-and-client-python
+.. _`the publisher and subscriber example`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20Python.html#writing-publisher-and-subscriber-nodes-python
+.. _`service and client examples`: https://ros2course.readthedocs.io/en/latest/Writing%20service%20and%20client.%20Python.html#writing-service-and-client-python
 
 Setup for working with custom msg and srv
 ------------------------
 
 Make sure to be in a `brand new terminal`_ window and no ROS command is currently running. 
 
-.. _`brand new terminal`: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
+.. _`brand new terminal`: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
 
 Create a new package. This package should be contained in the ``ros2_ws`` workspace, within its ``/src`` folder. The name provided to this new package will be ``tutorial_interfaces``. 
 
 For more reference on package creation consult the `package creation`_ section.
 
-.. _package creation: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
+.. _package creation: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
 
 .. code-block:: console
 
@@ -121,7 +121,7 @@ Now, source the setup file:
 
 For more reference on sourcing the setup file, see `sourcing the setup file`_.
 
-.. _sourcing the setup file: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
+.. _sourcing the setup file: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
 
 Next, to check that the custom message is correctly created, run:
 
@@ -222,7 +222,7 @@ Copy this content into the new python script.
 
 Notice that this code is very similar to the `publisher script that was studied previously`_.
 
-.. _`publisher script that was studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20Python.html#publisher-node-in-python
+.. _`publisher script that was studied previously`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20Python.html#publisher-node-in-python
 
 Check the important changes in this script.
 
@@ -292,7 +292,7 @@ Copy this content into the new python script.
 
 The code is very similar to the `listener script that was studied previously`_.
 
-.. _`listener script that was studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20Python.html#subscriber-node-in-python
+.. _`listener script that was studied previously`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20Python.html#subscriber-node-in-python
 
 Again, the relevant changes here, have to do with dealing with the appropriate topic name and message type. 
 
@@ -345,7 +345,7 @@ The result should be like the following:
 
 `Open a new terminal`_ and execute the ``sphere_listener`` node:
 
-.. _open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
    
@@ -434,7 +434,7 @@ Copy this content into the new python script.
 
 Notice that this code is very similar to the `service script that was studied previously`_.
 
-.. _`service script that was studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20service%20and%20client.%20Python.html#writing-the-service-node-python
+.. _`service script that was studied previously`: https://ros2course.readthedocs.io/en/latest/Writing%20service%20and%20client.%20Python.html#writing-the-service-node-python
 
 Check the important changes in this script.
 
@@ -502,7 +502,7 @@ Copy this content into the new python script.
 
 The code is very similar to the `service client script that was studied previously`_.
 
-.. _`service client script that was studied previously`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20service%20and%20client.%20Python.html#client-node-in-python
+.. _`service client script that was studied previously`: https://ros2course.readthedocs.io/en/latest/Writing%20service%20and%20client.%20Python.html#client-node-in-python
 
 Again, the relevant changes here, have to do with dealing with the appropriate service name and service type. 
 

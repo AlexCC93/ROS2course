@@ -12,7 +12,7 @@ Setup for working with services
 
 Make sure to be in a `brand new terminal`_ window and no ROS command is currently running. 
 
-.. _`brand new terminal`: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
+.. _`brand new terminal`: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
 
 Create a new package. This package should be contained in the ``ros2_ws`` workspace, within its ``/src`` folder. The name provided to this new package will be ``py_srvcli``.
 
@@ -31,7 +31,7 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
 
 For more reference on package creation consult the `package creation`_ section.
 
-.. _package creation: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
+.. _package creation: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
 
 Writing the service node. Python
 ------------------------
@@ -201,7 +201,7 @@ Now, source the setup file:
 
 For more reference on sourcing the setup file, see `sourcing the setup file`_.
 
-.. _sourcing the setup file: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
+.. _sourcing the setup file: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
 
 And run the publisher node that was recently created. 
 
@@ -213,7 +213,7 @@ As a result, nothing will be printed in the terminal window. This is because the
 
 `Open a new terminal`_ and execute:
 
-.. _open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
    
@@ -476,21 +476,21 @@ The use of ``rclpy.spin_until_future_complete()`` might have entered in conflict
 
 - In a `new terminal`_, run the service node ``service_node``. This will make the ``add_two_ints`` service available for use. 
 
-.. _new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. image:: images/RunningService_nodeExample.png
    :alt: Running the service node to show the example of the simpler problem.
 
 - `Open a new terminal`_, and run a talker node like has been seen in a `previous part`_ of the course. Recall to follow all the required steps (adding depencies, adding the entry point, etc.) to have this node available to use in this package.
 
-.. _`previous part`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20Python.html#build-publisher-node-and-run
+.. _`previous part`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20Python.html#build-publisher-node-and-run
 
 .. image:: images/RunningTalkerNodeExample.png
    :alt: Running the talker node to show the example of the simpler problem.
 
 With these nodes running, the problem is to create a node that subscribes to the topic called ``topic``, prints the messages that arrive to the topic (just like `this previous program`_) and when the message: ``"Hello World: 10"`` arrives, it calls the ``add_two_ints`` service and prints in the terminal the sum of ``5`` and ``2``. See the expected result below.
 
-.. _`this previous program`: https://alex-readthedocs-test.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#build-subscriber-node-and-run
+.. _`this previous program`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#build-subscriber-node-and-run
 
 .. image:: images/simplerProblemExample.png
    :alt: Simpler problem result example.

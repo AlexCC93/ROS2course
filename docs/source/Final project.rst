@@ -12,7 +12,7 @@ As it is known, when working with Docker, the changes performed in a container d
 
 Recall from `this section of the course`_ that the Docker file was used for generating a Docker image from which later, a Docker container will be created which is finally where the ROS 2 final project development is going to be held. 
 
-.. _this section of the course: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#the-dockerfile-script-explained
+.. _this section of the course: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#the-dockerfile-script-explained
 
 Having stated the reason for creating a new Docker image, navigate to the ``Dockerfile`` file that was created at the beginning of the course and add the following to it.
 
@@ -65,7 +65,7 @@ This command will create a Docker image based on the ``Dockerfile`` with the nam
 
 Next, this Docker image will be the base for creating a Docker container which is where the final project programming will be carried on. To create a container from this Docker image, follow the instruction on `this section`_  of the course, but launching the container with this different command:
 
-.. _`this section`: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
+.. _`this section`: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
 
 .. code-block:: console
 
@@ -112,7 +112,7 @@ Additionally, navigate to the workspace folder and source the workspace setup fi
 
 For more reference on sourcing the setup file, see `sourcing the setup file`_.
 
-.. _sourcing the setup file: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
+.. _sourcing the setup file: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
 
 Finally, execute these commands to launch the Gazebo enviroment for the final project. 
 
@@ -136,7 +136,7 @@ Remote control of the turlebot3
 
 First, turtlebot3 robot in the Gazebo environment can be remote-controlled by the user.  `Open a new terminal`_, making sure to point to the final project container: 
 
-.. _open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
 

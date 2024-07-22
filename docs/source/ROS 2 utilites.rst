@@ -17,7 +17,7 @@ ROS 2 bag record
 
 Having previously initiated a Docker container, start by launching the ``turtlesim_node`` along with the ``turtle_teleop_key``. `Open two terminals`_ and execute in each of them:
 
-.. _Open two terminals: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _Open two terminals: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
 
@@ -122,7 +122,7 @@ Running rqt_graph
 
 Since this command-line tool will make use of a GUI window, it is necessary to initiate a Docker container with ``Xlaunch``. Recall `this part of the course`_ and start a Docker container as such.  
 
-.. _this part of the course: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
+.. _this part of the course: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
 
 Start by executing the command-line tool:
 
@@ -144,7 +144,7 @@ Notice as well, the ``Hide`` section of the GUI, and see that almost all of the 
 
 It displays one node that is currently available, that is, the ``rqt_graph`` execution itself. `Open a new terminal`_ and execute:
 
-.. _Open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _Open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
 

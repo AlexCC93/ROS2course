@@ -12,7 +12,7 @@ Publisher node in python
 
 Make sure to be in a `brand new terminal`_ window and no ROS command is currently running. 
 
-.. _`brand new terminal`: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
+.. _`brand new terminal`: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#running-a-docker-container
 
 It will be necessary first to create a new package. This package should be contained in the ``ros2_ws`` workspace, within its ``/src`` folder. The name provided to this new package will be ``py_pubsub``.
 
@@ -22,7 +22,7 @@ It will be necessary first to create a new package. This package should be conta
 
 For more reference on package creation consult the `package creation`_ section.
 
-.. _package creation: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
+.. _package creation: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
 
 Inside this package, spsecifically in ``py_pubsub/py_pubsub`` create a python script, name it ``publisher_script.py``.
 
@@ -213,7 +213,7 @@ Now, source the setup file:
 
 For more reference on sourcing the setup file, see `sourcing the setup file`_.
 
-.. _sourcing the setup file: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
+.. _sourcing the setup file: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
 
 And run the publisher node that was recently created. 
 
@@ -234,7 +234,7 @@ See that every 0.5 seconds a new message will be printed in the terminal window.
 
 `Open a new terminal`_ and with the ``talker`` node still being running, execute:
 
-.. _open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
    
@@ -256,7 +256,7 @@ This is expected since it is known that the ``talker`` node publishes messages t
 
 Finally, it can be verified the name of the node by executing the following in a `new terminal`_.
 
-.. _new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
    
@@ -421,7 +421,7 @@ Now, source the setup file:
 
 For more reference on sourcing the setup file, see `this section`_ .
 
-.. _this section: https://alex-readthedocs-test.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
+.. _this section: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#workspace-sourcing
 
 And run the subscriber node that was recently created. 
 
