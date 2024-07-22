@@ -499,8 +499,8 @@ Have only the ``trutlesim_node`` node running. Create a new node called ``servic
 
 See image below for an example of the results:
 
-.. image:: images/servicePractice.png
-   :alt: Service practice example.
+.. image:: images/servicePractice_b.png
+   :alt: Service practice example of the optional part.
 
 A must-see for completing the practice
 ~~~~~~~~~~~~~~~~~~~~~
