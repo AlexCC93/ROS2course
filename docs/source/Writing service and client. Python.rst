@@ -475,8 +475,24 @@ Once, this node is run, the service becomes available and in the terminal where 
 Practice 
 ---------
 
-Have ``trutlesim`` node running. Create a new node called ``service_practice`` that performs:
+Have ``trutlesim_node`` and ``turtle_teleop_key`` nodes running. Create a new node called ``service_practice`` that performs:
 
+- When the turtle crosses the point x = 5.5 to the right of the screen, its drawing line should change of color to be red.
+- When the turtle position is to the left of the screen (its x position is lower than 5.5), its drawing line should become green.
+- Print in the terminal the color that is using.
+
+See image below for an example of the results:
+
+.. image:: images/servicePracticeWithTeleop.png
+   :alt: Service practice example with the teleop node.
+
+
+Optional
+~~~~~~~~
+Have only the ``trutlesim_node`` node running. Create a new node called ``service_practice_b`` that performs:
+
+- Make the turtlebot move accross the window with linear velocity 1.
+- When the turle is close to any wall of the screen, make it turn so it avoids crashing with it. Slow the movement of the turtle reducing its linear velocity to 0.5.
 - When the turtle crosses the point x = 5.5 to the right of the screen, its drawing line should change of color to be red.
 - When the turtle position is to the left of the screen (its x position is lower than 5.5), its drawing line should become green.
 - Print in the terminal the color that is using.
