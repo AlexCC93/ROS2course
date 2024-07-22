@@ -30,7 +30,7 @@ Any project that is developed in ROS 2, is typically called a "package". And all
 
 When initiating a Docker container from the ``ros2_humble_image`` Docker image that was generated in the `previous section`_ of the course, the folder called ``ros2_ws`` refers to the name of the ROS 2 workspace that is going to be used during the course. 
 
-.. _previous section: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#generate-proper-docker-image
+.. _previous section: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#generate-proper-docker-image
 
 Below, it will be seen how to properly configure it as a workspace.
 
@@ -53,7 +53,7 @@ This command is mouniting a volume into the generated container. Inside the cont
 
 See that the folder, at this point only contains a ``HelloWorld.txt`` file because of the linking of this folder with git; Recall `this previous section`_.
 
-.. _this previous section: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#version-control-with-github
+.. _this previous section: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#version-control-with-github
 
 .. image:: images/CheckingEmptyWs.png
    :alt: Checking an empty workspace.
@@ -185,7 +185,7 @@ Until now, it can be seen that the Docker container generated from ``ros2_humble
 
 `Open a new terminal`_ and execute either of these commands:
 
-.. _Open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _Open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
 
@@ -236,7 +236,7 @@ An Xlaunch window should be opened with a turtle in it and the modified frame na
 
 To see that your underlay is still intact, `open a new terminal`_ and run turtlesim again:
 
-.. _open a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
 
@@ -306,9 +306,9 @@ Now, the structure to create a new package with python is the following:
 
    ros2 pkg create --build-type ament_python --license Apache-2.0 <package_name>
 
-To see an example of this, open a `brand a new terminal`_ in a Docker container, and make sure no other ROS command is currently running. Navigate to ``ros2_ws/src`` and execute:
+To see an example of this, open a `brand new terminal`_ in a Docker container, and make sure no other ROS command is currently running. Navigate to ``ros2_ws/src`` and execute:
 
-.. _brand a new terminal: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+.. _brand new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
 .. code-block:: console
 
@@ -382,7 +382,7 @@ The structure to create a new package with CMake is the following:
 
    ros2 pkg create --build-type ament_cmake --license Apache-2.0 <package_name>
 
-To see an example of this, open a `brand a new terminal`_ in a Docker container, and  make sure no other ROS command is currently running. Navigate to ``ros2_ws/src`` and execute:
+To see an example of this, open a `brand new terminal`_ in a Docker container, and  make sure no other ROS command is currently running. Navigate to ``ros2_ws/src`` and execute:
 
 .. code-block:: console
 
@@ -443,7 +443,7 @@ A Dockerfile is a script containing a series of instructions on how to build a D
 
 Recall this script, which is part of the Dockerfile commented `in this part of the course`_. 
 
-.. _in this part of the course: https://alex-readthedocs-test.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#generate-proper-docker-image
+.. _in this part of the course: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#generate-proper-docker-image
 
 .. code-block:: console
 

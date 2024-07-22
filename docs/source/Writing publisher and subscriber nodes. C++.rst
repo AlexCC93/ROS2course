@@ -196,7 +196,7 @@ Just below the recently added commands add the executable and name it ``talker``
 
 .. code-block:: console
 
-   add_executable(talker src/publisher_member_function.cpp)
+   add_executable(talker src/publisher_script.cpp)
    ament_target_dependencies(talker rclcpp std_msgs)
 
 After this addition, include the following:
@@ -343,10 +343,10 @@ Navigate to ``cpp_pubsub/src`` and create a cpp script called: ``listener.cpp``.
 
    int main(int argc, char * argv[])
    {
-   rclcpp::init(argc, argv);
-   rclcpp::spin(std::make_shared<MinimalSubscriber>());
-   rclcpp::shutdown();
-   return 0;
+      rclcpp::init(argc, argv);
+      rclcpp::spin(std::make_shared<MinimalSubscriber>());
+      rclcpp::shutdown();
+      return 0;
    }
 
 

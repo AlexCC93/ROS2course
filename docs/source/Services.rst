@@ -27,7 +27,7 @@ Key differences betweeen services and topics:
    * - Data might be published and subscribed at any time independent of any senders/receivers. 
      - Mostly used for comparably fast tasks as requesting specific data.
    * - Callbacks receive data once it is available. 
-     - Simple blocking call.        
+     - Simple calling block.        
    * - The publisher decides when data is sent.      
      - Semantically for processing requests.
 
