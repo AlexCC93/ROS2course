@@ -93,12 +93,12 @@ Next, a void method is implemented
  
    void add(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
                std::shared_ptr<example_interfaces::srv::AddTwoInts::Response>      response)
-      {
-         response->sum = request->a + request->b;
-         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld",
-                        request->a, request->b);
-         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
-      }
+   {
+      response->sum = request->a + request->b;
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld",
+                     request->a, request->b);
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
+   }
 
 - ``void add(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request, std::shared_ptr<example_interfaces::srv::AddTwoInts::Response> response)``: This defines a function named ``add`` that takes two arguments: a shared pointer to the request message (``example_interfaces::srv::AddTwoInts::Request``) and a shared pointer to the response message (``example_interfaces::srv::AddTwoInts::Response``).
 - ``response->sum = request->a + request->b;``: This calculates the sum of the two integers ``a`` and ``b`` received in the request and stores the result in the ``sum`` field of the response message.
@@ -110,17 +110,17 @@ Finally, the ``main`` section:
    
    int main(int argc, char **argv)
    {
-   rclcpp::init(argc, argv);
+      rclcpp::init(argc, argv);
 
-   std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
+      std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
 
-   rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service =
-      node->create_service<example_interfaces::srv::AddTwoInts>("add_two_ints", &add);
+      rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service =
+         node->create_service<example_interfaces::srv::AddTwoInts>("add_two_ints", &add);
 
-   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add two ints.");
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add two ints.");
 
-   rclcpp::spin(node);
-   rclcpp::shutdown();
+      rclcpp::spin(node);
+      rclcpp::shutdown();
    }
 
 - ``int main(int argc, char **argv)``: This is the entry point of the program. It takes command-line arguments ``argc`` (argument count) and ``argv`` (argument vector).
@@ -271,11 +271,11 @@ Navigate to ``cpp_srvcli/src`` and create a cpp script called: ``add_two_ints_cl
 
    int main(int argc, char **argv)
    {
-   rclcpp::init(argc, argv);
+      rclcpp::init(argc, argv);
 
-   if (argc != 3) {
-         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
-         return 1;
+      if (argc != 3) {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
+            return 1;
    }
 
    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
