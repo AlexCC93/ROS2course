@@ -521,7 +521,12 @@ The use of ``rclpy.spin_until_future_complete()`` might have entered in conflict
 .. image:: images/RunningTalkerNodeExample.png
    :alt: Running the talker node to show the example of the simpler problem.
 
-With these nodes running, the problem is to create a node that subscribes to the topic called ``topic``, prints the messages that arrive to the topic (just like `this previous program`_) and when the message: ``"Hello World: 10"`` arrives, it calls the ``add_two_ints`` service and prints in the terminal the sum of ``5`` and ``2``. See the expected result below.
+With these nodes running, imagine the statement of the problem is to create a node that:
+ - Subscribes to the topic called ``topic``.
+ - Prints the messages that arrive to the topic (just like `this previous program`_).
+ - When the message: ``"Hello World: 10"`` arrives, it calls the ``add_two_ints`` service and prints in the terminal the sum of ``5`` and ``2``. 
+
+See the expected result below.
 
 .. _`this previous program`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#build-subscriber-node-and-run
 
@@ -584,7 +589,15 @@ This will result in an unexpected behavior of the program, the program stops rig
 .. image:: images/UnexpectedBehaviorSpinUntilFuterAndSpin.png
    :alt: The unexpected behavior when using spin_until_future_complete and spin in the same program.
 
-This occurs because ``spin_until_future_complete()`` function is called within the callback function ``listener_callback()``. This can lead to a deadlock situation, where the code waits indefinitely for the service call to complete while being stuck in the callback function. This is because the callback function ``listener_callback()`` is executed in the context of the ROS 2 executor thread, and this thread is being blocked until the service call completes.
+This occurs because ``spin_until_future_complete()`` function is called within the callback function ``listener_callback()``. This can lead to a deadlock situation, where the code waits indefinitely for the service call to complete while being stuck in the callback function. 
+
+.. image:: images/Deadlock.png
+   :alt: Deadlock graphical representation.
+
+Hence, for this situation we have:
+
+- Thread 1: This is the main thread (``rclpy.spin()``), which is responsible for spinning the node and invoking the ``listener_callback`` when a message is received. This thread "waits" for the ``listener_callback`` function to finish its execution.
+- Thread 2: The one issued by ``spin_until_future_complete()``, it will wait for the service to be finished. It creates a thread similar to ``rclpy.spin()``, hence it will check for incoming messages and call the appropriate callbacks of the node. In this way, the "Thread 2" whose main interest is to catch the response of the service, will also depend on the execution of the ``listener_callback``, which at the same time depends on the response from the service, creating the deadlock loop. 
 
 Hence, to avoid this issue, the service call must be handled in the following manner:
 
@@ -647,11 +660,11 @@ Hence, to avoid this issue, the service call must be handled in the following ma
    if __name__ == '__main__':
       main()
 
-See that ``spin_until_future_complete()`` function is not being used anymore to avoid blocking the ROS 2 executor thread. Instead, asynchronous service calls are used properly and a separate method handles the service call asynchronously. This method was named ``callback_sum()``. Below, there is a detailed explanation of what is happening:
+See that ``spin_until_future_complete()`` function is not being used anymore to avoid the deadlock loop. Instead, asynchronous service calls are used properly and a separate method handles the service call asynchronously. This method was named ``callback_sum()``. Below, there is a detailed explanation of what is happening:
 
-- First, the ``send_request()`` function works fine and finishes its execution returning an object result of sending the request asynchronously using ``self.cli.call_async()``. 
+- First, the ``send_request()`` function works fine and finishes its execution returning an object result (the ``Future`` object) of sending the request asynchronously using ``self.cli.call_async()``. 
 - This objected returned by ``send_request()`` is stored in a ``Future`` type variable. Later, a callback is attached to this object, the ``callback_sum`` method. But this callback will only be executed when the ``Future`` object is done; that is why the function ``add_done_callback()`` is being used. 
-- Next, the callback method. Any callback method attached to the ``add_done_callback()`` function will be invoked with the ``Future`` object as its only argument. And it simply checks if the result of the ``Future`` object is none so that it can print a log messages indicating that the sum has been performed successfully and showing its result, or that the service call has failed. 
+- Next, the callback method. Any callback method attached to the ``add_done_callback()`` function will be invoked with the ``Future`` object as its only argument. And it simply evaluates the result of the ``Future`` object, printing log messages or warning messages depending on the service call. 
 
 Do consider this situation when working with ``rclpy.spin()`` and ``spin_until_future_complete()`` as it will cause unexpected issues if not handled appropriately. 
 
