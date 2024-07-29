@@ -337,19 +337,22 @@ Check the important changes in this script.
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
    }
 
-- It is important to correctly import the required service. In this case notice that ``add_three_ints.hpp`` is being imported when the actual created service was named ``AddThreeInts.srv``. If ``#include "tutorial_interfaces/srv/AddThreeInts.hpp"``  were to be imported, a compilation error would have arisen stating:
+- It is important to correctly import the required service. In this case, notice that ``add_three_ints.hpp`` is being imported when the actual created service was named ``AddThreeInts.srv`` (See the `definition of the service`_ section to recall about the name of the service). If ``#include "tutorial_interfaces/srv/AddThreeInts.hpp"``  were to be imported, a compilation error would have arisen stating:
+
+.. _`definition of the service`: https://ros2course.readthedocs.io/en/latest/Creating%20custom%20msg%20and%20srv.%20Python.html#service-definition
 
 .. code-block:: console
    
    fatal error: tutorial_interfaces/srv/AddThreeInts.hpp: No such file or directory
 
 This happens because in ROS 2, the naming convention for service files (.srv) is usually converted to snake_case when generating corresponding C++ code. So, a service file named ``AddThreeInts.srv``, when generating C++ code, it will typically be converted to ``add_three_ints.hpp``.
-- The service node will now be of type ``AddThreeInts``, and the service name is also modified to be ``add_three_ints``. The service name could have stayed the same, but it is better to name the services accordingly.
-- Finally, the callback function, instead of summing two values it will summ the three parameters in the request section of the service. 
+
+- The service node will be of type ``AddThreeInts``, and the service name of name: ``add_three_ints``. 
+- Finally, the callback function, instead of adding two values it will summ the three parameters in the request section of the service. 
 
 Next, create a client node for this service. Inside ``testing_interfaces_cpp/src`` create a C++ script, name it ``add_client_node.cpp``. 
 
-Copy this content into the new python script. 
+Copy this content into the new cpp script. 
 
 .. code-block:: cpp
 
@@ -433,6 +436,7 @@ Next, add the following to the ``CMakeLists.txt`` file:
 Considering the changes for the custom msg as well, the final ``CMakeLists.txt`` file should look like this:
 
 .. code-block:: console
+
    cmake_minimum_required(VERSION 3.8)
    project(testing_interfaces_cpp)
 
@@ -549,7 +553,7 @@ The process below is similar to the one `studied previously`_.
 Create a new package
 ~~~~~~~~~~~~~~~~
 
-:ref:`Open a new terminal<installation/Running a docker container>` and make sure that no ROS commands are currently running. 
+`Open a new terminal`_ and make sure that no ROS commands are currently running. 
 
 Create a new package. This package should be contained in the ``ros2_ws`` workspace, within its ``/src`` folder. The name provided to this new package will be ``more_interfaces``.
 
@@ -703,7 +707,9 @@ Copy this content into the new C++ script.
 
 The code consists on these parts:
 
-- Library imports. Notice specially the ``address_book.hpp`` header that is imported. As explained in :ref:`this section<Testing the AddThreeInts custom srv in a C++ package/The code>`  the srv and msg files are usually converted to snake_case when generating corresponding C++ code.
+- Library imports. Notice specially the ``address_book.hpp`` header that is imported. As explained in `this section`_  the srv and msg files are usually converted to snake_case when generating corresponding C++ code.
+
+.. _`this section`: https://ros2course.readthedocs.io/en/latest/Creating%20custom%20msg%20and%20srv.%20C%2B%2B.html#id1
 
 .. code-block:: cpp
 

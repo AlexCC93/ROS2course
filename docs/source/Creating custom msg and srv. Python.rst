@@ -83,7 +83,7 @@ The ``CMakeLists.txt`` file should look similar to:
    :alt: CMakeLists.txt for custom msg and srv.
 
 
-Editting the pacakge.xml file
+Editing the package.xml file
 -----------------------
 
 The following should be added to ``tutorial_interfaces/package.xml``:
@@ -451,8 +451,8 @@ Check the important changes in this script.
          return response
 
 - It is important to correctly import the required service.
-- The service node will now be of type ``AddThreeInts``, and the service name is also modified to be ``add_three_ints``. The service name could have stayed the same, but it is better to name the services accordingly.
-- Finally, the callback function, instead of summing two values it will summ the three parameters in the request section of the service. 
+- The service node will now be of type ``AddThreeInts``, and the a service name of: ``add_three_ints``. 
+- Finally, the callback function, instead of adding two values it will summ the three parameters in the request section of the service. 
 
 Next, create a client node for this service. Inside ``testing_interfaces_python/testing_interfaces_python`` create a python script, name it ``add_client_node.py``. 
 
