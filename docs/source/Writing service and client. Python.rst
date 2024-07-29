@@ -35,6 +35,9 @@ This package of name ``example_interfaces`` resides in the default installation 
 
    /opt/ros/humble/share/example_interfaces
 
+.. image:: images/example_interfacesPath.png
+   :alt: example_interfaces package Path.
+
 Finally, for more reference on package creation consult the `package creation`_ section.
 
 .. _package creation: https://ros2course.readthedocs.io/en/latest/Configuring%20environment.html#creating-and-configuring-a-package
@@ -42,7 +45,7 @@ Finally, for more reference on package creation consult the `package creation`_ 
 Writing the service node. Python
 ------------------------
 
-Inside this package, spsecifically in ``py_srvcli/py_srvcli`` create a python script, name it ``service_node.py``.
+Inside this package, specifically in ``py_srvcli/py_srvcli`` create a python script, name it ``service_node.py``.
 
 Copy this content into the new python script. 
 
@@ -86,7 +89,7 @@ Copy this content into the new python script.
 
 The first lines correspond to import libraries.
 
-.. code-block:: console
+.. code-block:: python
 
    from example_interfaces.srv import AddTwoInts
 
@@ -142,7 +145,7 @@ Lastly, the main function is defined.
    if __name__ == '__main__':
       main()
 
-- First the rclpy library is initialized.
+- First the ``rclpy`` library is initialized.
 - A node is created by instantiating an object of the ``MinimalService`` class.
 - ``rclpy.spin(minimal_service)`` starts the ROS 2 event loop for the specified node (``minimal_service``). The event loop is responsible for processing messages, handling callbacks, and maintaining the communication infrastructure of the ROS 2 system. 
 - ``rclpy.shutdown()`` shuts down the ROS 2 system. It releases resources allocated by the ROS 2 middleware and cleans up the environment.
@@ -150,7 +153,7 @@ Lastly, the main function is defined.
 2. Service, python. Adding dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once the python script is ready, make sure the dependencies to run this script are correctly configured in the ROS 2 environment. Navigate to ``py_srvcli/package.xml`` and add check that the dependecies are already added for this case, since at the moment of the package creation it was executed: ``--dependencies rclpy example_interfaces``.
+Once the python script is ready, make sure the dependencies to run this script are correctly configured in the ROS 2 environment. Navigate to ``py_srvcli/package.xml`` and check that the dependecies are already added for this case, since at the moment of the package creation it was executed: ``--dependencies rclpy example_interfaces``.
 
 .. code-block:: console
 
@@ -160,7 +163,7 @@ Once the python script is ready, make sure the dependencies to run this script a
 About the ``<depend>`` tags:
 
 - This tag is a more general declaration of dependency. 
-- It's used to specify both build-time and runtime dependencies. 
+- It is used to specify both build-time and runtime dependencies. 
 - ``<depend>`` includes both the dependencies needed for compilation and those needed at runtime.
 - It encompasses a wider range of dependencies compared to ``<exec_depend>``.
 
@@ -237,7 +240,7 @@ This will result in something similar to:
    /service_node/set_parameters
    /service_node/set_parameters_atomically
 
-Here, it can be seen that the service that was created in the ``service_node.py`` python script is indeed present and ready to be called, that is: ``/add_two_ints`` service.
+Here, it can be seen that the service that was created in the ``service_node.py`` python script, is indeed present and ready to be called, that is: ``/add_two_ints`` service.
 
 Now, to have things clear execute the following:
 
@@ -361,20 +364,19 @@ Next, a class is created:
    
    create_client(<srv_type>, <srv_name>, *, qos_profile=<rclpy.qos.QoSProfile object>, <callback_group=None>)
 
-- The execution of the program is stopped for 1 second, if the service of interest (``add_two_ints``) is not responding, then "service not available" message will be printed in the terminal.
+- The execution of the program is stopped for 1 second, if the service of interest (``add_two_ints``) is not responding, then a "service not available" message will be printed in the terminal.
 - An instance of the request message type ``AddTwoInts.Request()`` is intialized in ``self.req``.
-
 - Then a method is created: ``send_request()``. This performs:
-   - Sends a request to the ``add_two_ints`` service with two integers ``a`` and ``b``.
-   - It sets the ``a`` and ``b`` fields of the request message.
-   - It sends the request asynchronously using ``self.cli.call_async()``. This means that ``call_async()`` does not block the program's execution while waiting for a response. Instead, it immediately returns a ``Future`` object.
-      - A ``Future`` object represents the result of an asynchronous operation. It can be used to check the status of the operation or retrieve the result once it is complete. When ``call_async()`` is called, it returns a ``Future`` object that will eventually hold the response from the service. See below, some info extracted from its documentation: https://docs.ros2.org/latest/api/rclpy/api/services.html.  
-
-      .. image:: https://docs.ros.org/en/humble/_images/call_asyncDocs.gif
+  - Sends a request to the ``add_two_ints`` service with two integers ``a`` and ``b``.
+  - It sets the ``a`` and ``b`` fields of the request message.
+  - It sends the request asynchronously using ``self.cli.call_async()``. This means that ``call_async()`` does not block the program's execution while waiting for a response. Instead, it immediately returns a ``Future`` object.
+    - A ``Future`` object represents the result of an asynchronous operation. It can be used to check the status of the operation or retrieve the result once it is complete. When ``call_async()`` is called, it returns a ``Future`` object that will eventually hold the response from the service. See below, some info extracted from its documentation: https://docs.ros2.org/latest/api/rclpy/api/services.html.
+  
+      .. image:: images/call_asyncDocs.png
          :alt: the call_async function documentation.
     
-   - ``rclpy.spin_until_future_complete(self, self.future)`` is a blocking call that keeps the node running and processing until the ``Future`` object is complete. It effectively waits for the service response to be received and the ``Future`` to be set with the result.
-   - Finally, ``self.future.result()`` retrieves the result of the asynchronous operation once it is complete. If the service call was successful, this will return the response from the ``AddTwoInts`` service, which includes the sum of the two integers.
+    - ``rclpy.spin_until_future_complete(self, self.future)`` is a blocking call that keeps the node running and processing until the ``Future`` object is complete. It effectively waits for the service response to be received and the ``Future`` to be set with the result.
+    - Finally, ``self.future.result()`` retrieves the result of the asynchronous operation once it is complete. If the service call was successful, this will return the response from the ``AddTwoInts`` service, which includes the sum of the two integers.
 
 Lastly, the main function, nitializes the ``rclpy`` library, creates the client node, sends the corresponding request, explicitely destroys the node when issued from the terminal window, a command of stoppage, and shuts down the ROS 2 system.
 

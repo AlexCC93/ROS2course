@@ -151,15 +151,15 @@ Navigate to ``cpp_srvcli/CMakeLists.txt`` and add the following below the existi
 
 .. code-block:: console
 
-   add_executable(server src/add_two_ints_server.cpp)
-   ament_target_dependencies(server rclcpp example_interfaces)
+   add_executable(add_two_ints_server src/add_two_ints_server.cpp)
+   ament_target_dependencies(add_two_ints_server rclcpp example_interfaces)
 
 After this addition, include the following to the end of the file, right before ``ament_package()``:
 
 .. code-block:: console
 
    install(TARGETS
-    server
+    add_two_ints_server
    DESTINATION lib/${PROJECT_NAME})
 
 Once everything is added, the ``CMakeLists.txt`` file should be similar to:
