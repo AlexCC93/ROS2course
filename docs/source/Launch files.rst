@@ -139,8 +139,8 @@ First, some libraries import:
    from launch import LaunchDescription
    from launch_ros.actions import Node
 
-- ``from launch import LaunchDescription``: This line imports the ``LaunchDescription`` class from the ``launch`` package. The ``LaunchDescription class`` is a key component in ROS 2 launch files. It is used to define the structure and contents of a launch file. When a launch file is created in ROS 2, an instance of ``LaunchDescription`` is typically created and various actions (such as starting nodes) are added to it.
-- ``from launch_ros.actions import Node``: This line imports the Node class from the ``launch_ros.actions`` module. The ``Node`` class is a specialized action in ROS 2 launch files that is used to start a ROS 2 node. To execute a node in a launch file, an instance of ``Node`` is created and the package name, executable name, node name, and any parameters or remappings that are needed for the node are specified.
+- ``from launch import LaunchDescription``: This line imports the ``LaunchDescription`` class from the ``launch`` package. The ``LaunchDescription`` class is a key component in ROS 2 launch files. It is used to define the structure and contents of a launch file. When a launch file is created in ROS 2, an instance of ``LaunchDescription`` is typically created and various actions (such as starting nodes) are added to it.
+- ``from launch_ros.actions import Node``: This line imports the ``Node`` class from the ``launch_ros.actions`` module. The ``Node`` class is a specialized action in ROS 2 launch files that is used to start a ROS 2 node. To execute a node in a launch file, an instance of ``Node`` is created and the package name, executable name, node name, and any parameters or remappings that are needed for the node are specified.
 
 Next, a function defintion:
 
@@ -173,13 +173,13 @@ Next, a function defintion:
 
 - This function returns a ``LaunchDescription`` object, which contains all the actions (in this case, node launches) to be performed when the launch file is executed.
 - ``Node(...)`` : This line starts the definition of a ROS 2 node to be launched.
-   - The ``package``, ``namespace``, ``executable`` and ``name`` parameters are specified.
+    - The ``package``, ``namespace``, ``executable`` and ``name`` parameters are specified.
 - It executes three nodes: 
-   - Two nodes from the ``turtlesim_node`` executable file; each one with a different namespace name.
-   - And one node from the ``mimic`` executable file.   
+    - Two nodes from the ``turtlesim_node`` executable file; each one with a different namespace name.
+    - And one node from the ``mimic`` executable file.   
 - At the moment of executing the ``mimic`` node two remap actions are performed:
-   - ``/input/pose``, which is the topic that ``mimic`` node is initially subscribed to, is now remapped to ``/turtlesim1/turtle1/pose``, meaning that the ``mimic`` node is now subscribed to ``/turtlesim1/turtle1/pose``, which happens to be the ``pose`` topic to which the first turtle simulation publishes messages to.
-   - ``/output/cmd_vel`` topic, which is the topic that the ``mimic`` node initially published to, is now remapped to ``/turtlesim2/turtle1/cmd_vel``, meaning that the ``mimic`` node is now publishing to ``/turtlesim2/turtle1/cmd_vel``, which happens to be the ``cmd_vel`` topic to which the second turtle simulation is subscribed to.
+    - ``/input/pose``, which is the topic that ``mimic`` node is initially subscribed to, is now remapped to ``/turtlesim1/turtle1/pose``, meaning that the ``mimic`` node is now subscribed to ``/turtlesim1/turtle1/pose``, which happens to be the ``pose`` topic to which the first turtle simulation publishes messages to.
+    - ``/output/cmd_vel`` topic, which is the topic that the ``mimic`` node initially published to, is now remapped to ``/turtlesim2/turtle1/cmd_vel``, meaning that the ``mimic`` node is now publishing to ``/turtlesim2/turtle1/cmd_vel``, which happens to be the ``cmd_vel`` topic to which the second turtle simulation is subscribed to.
 
 Test the launch file
 ~~~~~~~~~~~~~~~~
@@ -224,7 +224,7 @@ This will show how the mimic node is linking the two turtlesim nodes; it subscri
 .. image:: images/rqt_graph_mimicNode.png
    :alt: rqt_graph with the two nodes and the mimic node.
 
-Now, in a `a new terminal`_, execute:
+Now, in `a new terminal`_, execute:
 
 .. code-block:: console
 
@@ -278,7 +278,7 @@ The ``setup.py`` file should be similar to this one:
 
 Navigate to ``py_launch_example/launch`` and check the launch file name since this needs to end with ``launch.py`` to be recognized and autocompleted by ``ros2 launch``. 
 
-Now, build and test. `Open a new terminal` window and make sure no ROS command is currently running.
+Now, build and test. `Open a new terminal`_ window and make sure no ROS command is currently running.
 
 .. _open a new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
 
@@ -357,4 +357,20 @@ Similar to the example of controlling the turtle movement with this command:
 
    ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
 
-Now, instead of making the turtles go in circle, execute the ``turtle_teleop_key`` to control the motion of ``/turtlesim1/sim``. The result should be the user controlling the movement of turtle1 and turtle2 following it.
+Now, instead of making the turtles go in circle, execute the ``turtle_teleop_key`` to control the motion of ``/turtlesim1/sim``. The result should be the user controlling the movement of turtle1 and turtle2 following it. See how accurate one turtle follows the other one. Try to make one turtle follow the other one as precise as possible.
+
+Optional
+~~~~~~~
+
+Create a new launch file called ``turtlesim_mimic_b_launch.py`` that performs:
+- Publishing to the ``/turtlesim1/sim`` turtle, and make it draw an spiral. 
+- The second turtle should follow the first one and draw an spiral too. 
+- Try to make one turtle follow the other one as precise as possible.
+
+See image below for an example of the results:
+
+.. image:: images/launchPractice_b.png
+   :alt: Launch practice optional part.
+
+
+

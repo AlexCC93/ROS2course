@@ -49,7 +49,7 @@ The following can be performed when working with parameters.
 1. Listing all parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
-Let's first run these two nodes in separate terminal windows, of course.
+Let's first run these two nodes in separate terminal windows.
 
 .. code-block:: console
 
@@ -99,12 +99,17 @@ There is a group of parameters that are repeated for each namespace:
    qos_overrides./parameter_events.publisher.history
    qos_overrides./parameter_events.publisher.reliability
 
-All these parameters are related to Quality of Service (QoS) settings for the ``parameter_events.publisher`` node. Each of these parameters particularly specify:
+All these parameters are related to Quality of Service (QoS) settings for the publisher that is responsible of publishing parameter change events. When parameters are changed, parameter events are generated. These events are typically published on a special topic so that other parts of the system can be aware of parameter changes.
 
-- ``qos_overrides./parameter_events.publisher.depth``: This parameter defines the maximum number of messages that can be queued for the parameter_events.publisher topic. It specifies the depth of the publisher's message queue. If the queue is full and new messages arrive, older messages will be dropped. 
-- ``qos_overrides./parameter_events.publisher.durability``: Durability defines whether messages published by the ``parameter_events.publisher`` should be retained even if there are no subscribers at the moment. Durability settings include ``volatile`` (messages are not retained), ``transient_local`` (messages are retained as long as there is at least one local subscriber), and ``transient`` (messages are retained as long as there is at least one subscriber).
-- ``qos_overrides./parameter_events.publisher.history``: This parameter specifies the kind of history policy used by the ``parameter_events.publisher``. History policies include ``keep_last`` (only the last N messages are retained), ``keep_all`` (all messages are retained), and ``unknown`` (the history policy is unknown or unspecified).
-- ``qos_overrides./parameter_events.publisher.reliability``: Reliability defines whether messages published by the ``parameter_events.publisher`` should be delivered reliably to subscribers. Reliability settings include ``reliable`` (messages are delivered reliably, with acknowledgments), and ``best_effort`` (messages are sent without acknowledgments, which may result in message loss).
+.. image:: images/parameter_eventsSpecialTopic.png
+   :alt: Parameter_events special topic, obtained from rqt_graph.
+
+Each of these parameters particularly specify:
+
+- ``qos_overrides./parameter_events.publisher.depth``: This parameter defines the maximum number of messages that can be queued for the publisher of parameters change. It specifies the depth of the publisher's message queue. If the queue is full and new messages arrive, older messages will be dropped. 
+- ``qos_overrides./parameter_events.publisher.durability``: Durability defines whether published messages should be retained even if there are no subscribers at the moment. Durability settings include ``volatile`` (messages are not retained), ``transient_local`` (messages are retained as long as there is at least one local subscriber), and ``transient`` (messages are retained as long as there is at least one subscriber).
+- ``qos_overrides./parameter_events.publisher.history``: This parameter specifies the kind of history policy used. History policies include ``keep_last`` (only the last N messages are retained), ``keep_all`` (all messages are retained), and ``unknown`` (the history policy is unknown or unspecified).
+- ``qos_overrides./parameter_events.publisher.reliability``: Reliability defines whether published messages should be delivered reliably to subscribers. Reliability settings include ``reliable`` (messages are delivered reliably, with acknowledgments), and ``best_effort`` (messages are sent without acknowledgments, which may result in message loss).
 
 And the other parameters that are specific to a namespace refer to:
 
@@ -190,7 +195,7 @@ Either of these commands structures are capable to display all of a node's curre
    ros2 param dump <node_name>
    ros2 param dump <node_name> > <file_name.yaml>
 
-The first one will print the parameters with their correspondant values, while the second command structure will redirect the parameter values into a file to save them for later.
+The first one will print in the terminal window, the parameters with their correspondant values; while the second command structure will redirect the parameter values into a file to save them for later.
 
 Run the example below:
 
