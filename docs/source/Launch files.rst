@@ -363,6 +363,7 @@ Optional
 ~~~~~~~
 
 Create a new launch file called ``turtlesim_mimic_b_launch.py`` that performs:
+
 - Publishing to the ``/turtlesim1/sim`` turtle, and make it draw an spiral. 
 - The second turtle should follow the first one and draw an spiral too. 
 - Try to make one turtle follow the other one as precise as possible.
