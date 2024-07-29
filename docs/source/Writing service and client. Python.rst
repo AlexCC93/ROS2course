@@ -370,7 +370,7 @@ Next, a class is created:
   - Sends a request to the ``add_two_ints`` service with two integers ``a`` and ``b``.
   - It sets the ``a`` and ``b`` fields of the request message.
   - It sends the request asynchronously using ``self.cli.call_async()``. This means that ``call_async()`` does not block the program's execution while waiting for a response. Instead, it immediately returns a ``Future`` object.
-    - A ``Future`` object represents the result of an asynchronous operation. It can be used to check the status of the operation or retrieve the result once it is complete. When ``call_async()`` is called, it returns a ``Future`` object that will eventually hold the response from the service. See below, some info extracted from its documentation: https://docs.ros2.org/latest/api/rclpy/api/services.html.
+    - A ``Future`` object represents the result of an asynchronous operation. It can be used to check the status of the operation or retrieve the result once it is complete. When ``call_async()`` is called, it returns a ``Future`` object that will eventually hold the response from the service. See below, some info extracted from its documentation: https://docs.ros2.org/latest/api/rclpy/api/services.html#rclpy.client.Client.call_async.
   
       .. image:: images/call_asyncDocs.png
          :alt: the call_async function documentation.
@@ -378,7 +378,7 @@ Next, a class is created:
     - ``rclpy.spin_until_future_complete(self, self.future)`` is a blocking call that keeps the node running and processing until the ``Future`` object is complete. It effectively waits for the service response to be received and the ``Future`` to be set with the result.
     - Finally, ``self.future.result()`` retrieves the result of the asynchronous operation once it is complete. If the service call was successful, this will return the response from the ``AddTwoInts`` service, which includes the sum of the two integers.
 
-Lastly, the main function, nitializes the ``rclpy`` library, creates the client node, sends the corresponding request, explicitely destroys the node when issued from the terminal window, a command of stoppage, and shuts down the ROS 2 system.
+Lastly, the main function, it initializes the ``rclpy`` library, creates the client node, sends the corresponding request, explicitely destroys the node when a command of stoppage is issued from the terminal window, and shuts down the ROS 2 system.
 
 .. code-block:: python
 
@@ -394,7 +394,7 @@ Lastly, the main function, nitializes the ``rclpy`` library, creates the client 
       minimal_client.destroy_node()
       rclpy.shutdown()
 
-- First the rclpy library is initialized.
+- First the ``rclpy`` library is initialized.
 - A node is created by instantiating an object of the ``MinimalClientAsync`` class.
 - It sends a request to the service using command-line arguments passed to the script.
 - It logs the result of the service call by printing a message to the terminal, that specifies the result of the sum. 
@@ -523,7 +523,10 @@ The use of ``rclpy.spin_until_future_complete()`` might have entered in conflict
 .. image:: images/RunningTalkerNodeExample.png
    :alt: Running the talker node to show the example of the simpler problem.
 
+
 With these nodes running, imagine the statement of the problem is to create a node that:
+
+
  - Subscribes to the topic called ``topic``.
  - Prints the messages that arrive to the topic (just like `this previous program`_).
  - When the message: ``"Hello World: 10"`` arrives, it calls the ``add_two_ints`` service and prints in the terminal the sum of ``5`` and ``2``. 
