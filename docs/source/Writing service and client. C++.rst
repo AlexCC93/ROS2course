@@ -142,6 +142,7 @@ Once the C++ script is ready, make sure the dependencies to run this script are 
    <depend>example_interfaces</depend>
 
 About the ``<depend>`` tags:
+
 - This tag is a more general declaration of dependency. It's used to specify both build-time and runtime dependencies. ``<depend>`` includes both the dependencies needed for compilation and those needed at runtime. It encompasses a wider range of dependencies compared to ``<exec_depend>``.
 
 3. Service, C++. Adding the executable
@@ -380,7 +381,7 @@ The fourth part:
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
    }
 
-- This loop waits until the service becomes available or until the program is interrupted. If the program is interrupted (e.g., by pressing Ctrl+C), it exits gracefully.
+- This loop waits until the service becomes available or until the program is interrupted. If the program is interrupted (e.g., by pressing Ctrl+C), it exits gracefully. The loop makes use of ``1s``, which is a literal representing 1 second. This is made possible by using ``namespace std::chrono_literals;``.
 
 And the fifth part:
 
@@ -412,7 +413,7 @@ As the libraries to use in this program are exactly the same as in the publisher
 3. Service client, C++. CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to ``cpp_srvcli/CMakeLists.txt``` and add the following below the ``ament_target_dependencies(add_two_ints_server rclcpp example_interfaces)`` command:
+Navigate to ``cpp_srvcli/CMakeLists.txt`` and add the following below the ``ament_target_dependencies(add_two_ints_server rclcpp example_interfaces)`` command:
 
 .. code-block:: console
    
@@ -488,7 +489,7 @@ Once, this node is ran, the service becomes available and in the terminal where 
 Practice 
 ---------
 
-Have ``trutlesim`` node running. Create a new node called ``service_practice`` that performs:
+Have ``trutlesim_node`` and ``turtle_teleop_key`` nodes running. Create a new node called ``service_practice`` that performs:
 
 - When the turtle crosses the point x = 5.5 to the right of the screen, its drawing line should change of color to be red.
 - When the turtle position is to the left of the screen (its x position is lower than 5.5), its drawing line should become green.
@@ -496,18 +497,41 @@ Have ``trutlesim`` node running. Create a new node called ``service_practice`` t
 
 See image below for an example of the results:
 
+.. image:: images/servicPracticeCpp.png
+   :alt: Service practice example with the teleop node Cpp.
+
+
+Optional
+~~~~~~~~
+Have only the ``trutlesim_node`` node running. Create a new node called ``service_practice_b`` that performs:
+
+- Make the turtlebot move accross the window with linear velocity 1.
+- When the turle is close to any wall of the screen, make it turn so it avoids crashing with it. Slow the movement of the turtle reducing its linear velocity to 0.5.
+- When the turtle crosses the point x = 5.5 to the right of the screen, its drawing line should change of color to be red.
+- When the turtle position is to the left of the screen (its x position is lower than 5.5), its drawing line should become green.
+- Print in the terminal the color that is using.
+
+See image below for an example of the results:
+
 .. image:: images/servicePracticeCpp.png
-   :alt: Service practice example Cpp.
+   :alt: Service practice example of the optional part, cpp.
 
 A must-see for completing the practice
 ~~~~~~~~~~~~~~~~~~~~~
 
 The use of ``rclcpp::spin_until_future_complete()`` might have entered in conflict with ``rclcpp::spin()`` in the ``service_practice`` program while trying to accomplish the practice. For that, imagine a relatively simpler problem to address:
 
-- In a :ref:`new terminal<Installation/Running a docker container>`, run the service node ``add_two_ints_server``. This will make the ``add_two_ints`` service available for use. 
-- :ref:`Open a new terminal<Installation/Opening a new terminal>`, and run a talker node like has been seen in a :ref:`previous part<Writing custom publisher and subscriber nodes. C++. Python/Publisher node in C++>` of the course. Recall to follow all the required steps (adding depencies, configuring the CMakeLists, etc.) to have this node available to use in this package.
+- In a `new terminal`_, run the service node ``add_two_ints_server``. This will make the ``add_two_ints`` service available for use. 
+- `Open a new terminal`_, and run a talker node like has been seen in a `previous part`_ of the course. Recall to follow all the required steps (adding depencies, configuring the CMakeLists, etc.) to have this node available to use in this package.
 
-With these nodes running, the problem is to create a node that subscribes to the topic called ``topic``, prints the messages that arrive to the topic (just like :ref:`this previous program<Writing custom publisher and subscriber nodes. C++/Subscriber node in cpp>`) and when the message ``"Hello, world! 10'"`` arrives, it calls the ``add_two_ints`` service and prints in the terminal the sum of ``5`` and ``2``. See an example below.
+
+.. _new terminal: https://ros2course.readthedocs.io/en/latest/Installation%20and%20software%20setup.html#opening-a-new-terminal-for-the-docker-container
+
+.. _`previous part`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#build-publisher-node-and-run
+
+With these nodes running, the statement of the problem is to create a node that subscribes to the topic called ``topic``, prints the messages that arrive to the topic (just like  `this previous program`_) and when the message ``"Hello, world! 10'"`` arrives, it calls the ``add_two_ints`` service and prints in the terminal the sum of ``5`` and ``2``. See an example below.
+
+.. _`this previous program`: https://ros2course.readthedocs.io/en/latest/Writing%20publisher%20and%20subscriber%20nodes.%20C%2B%2B.html#build-subscriber-node-and-run 
 
 .. image:: images/simplerProblemExampleWorkingGoodCpp.png
    :alt: Simpler problem result example.
