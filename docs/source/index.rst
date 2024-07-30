@@ -26,6 +26,7 @@ Contents
    Creating custom msg and srv. C++
    Parameters
    Launch files
+   Uploading practices
    ROS 2 utilites
    Final project
    
