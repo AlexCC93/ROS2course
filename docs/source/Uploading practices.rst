@@ -7,9 +7,9 @@ Each student of the course should have his/her own remote repository configured 
 
 First, each student should enter the links provided below according to the practice he/she wants to upload to.
 
-- For practice 1: https://classroom.github.com/a/70XMAE-y
-- For practice 2: https://classroom.github.com/a/e1SmlK3-
-- For practice 3: https://classroom.github.com/a/NbkHw5Mo
+- For practice 1: https://classroom.github.com/a/ff9a3SPA
+- For practice 2: https://classroom.github.com/a/YW9AHJSs
+- For practice 3: 
 
 When a student clicks on one of the links above, an invitation to work in the correspondant repository will be presented. Accept that invitation. 
 
