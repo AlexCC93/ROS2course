@@ -28,6 +28,7 @@ Having stated the reason for creating a new Docker image, navigate to the ``Dock
    RUN sudo apt install ros-humble-dynamixel-sdk -y
    RUN sudo apt install ros-humble-turtlebot3-msgs -y
    RUN sudo apt install ros-humble-turtlebot3 -y
+   RUN sudo apt-get install ros-humble-turtlebot3-gazebo -y
 
 The complete ``Dockerfile`` should look like this:
 
@@ -51,6 +52,7 @@ The complete ``Dockerfile`` should look like this:
    RUN sudo apt install ros-humble-dynamixel-sdk -y
    RUN sudo apt install ros-humble-turtlebot3-msgs -y
    RUN sudo apt install ros-humble-turtlebot3 -y
+   RUN sudo apt-get install ros-humble-turtlebot3-gazebo -y
 
 Once the ``Dockerfile`` is modified, let's generate a Docker image out of it. Go to the Windows terminal and navigate to the folder that contains the ``Dockerfile`` file and execute:
 
@@ -58,7 +60,13 @@ Once the ``Dockerfile`` is modified, let's generate a Docker image out of it. Go
 
    docker image build -t ros2_fin_proj .
 
-This command will create a Docker image based on the ``Dockerfile`` with the name of ``ros2_fin_proj``.
+Alternativelly, this command can be executed with Docker not using its caching mechanism, building every step from scratch, ensuring that all commands are executed anew.
+
+.. code-block:: console
+
+   docker image build --no-cache -t ros2_fin_proj .
+
+Either of these commands will create a Docker image based on the ``Dockerfile``. The name assigned to the Docker image will be: ``ros2_fin_proj``.
 
 .. image:: images/DockerImageFinProjCreated.png
    :alt: Docker image created for the final project.

@@ -9,7 +9,7 @@ First, each student should enter the links provided below according to the pract
 
 - For practice 1: https://classroom.github.com/a/ff9a3SPA
 - For practice 2: https://classroom.github.com/a/YW9AHJSs
-- For practice 3: https://classroom.github.com/a/lf82URFT
+- For practice 3: https://classroom.github.com/a/yly1SDoH
 
 When a student clicks on one of the links above, an invitation to work in the correspondant repository will be presented. Accept that invitation. 
 
