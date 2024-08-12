@@ -228,8 +228,14 @@ And any other operation that the programmer thinks necessary.
 
 The execution of the final project must be contained in a single launch file. All nodes that the programmer believes necessary must be contained in a single launch file. 
 
-The code of the final project must be uploaded to each participant's personal Github repository. This link must be then shared with the instructor to asses its performance. 
+IMPORTANT
+------------
 
+To submit the presentation for this final project, please use the following link: https://classroom.github.com/a/lC5Wabpd.
+
+**Submission Deadline**: Sunday, August 18th.
+
+Please refer to the guidelines provided in the link for detailed instructions on completing and submitting your final project.
 
 
 
